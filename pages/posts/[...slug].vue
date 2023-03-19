@@ -6,7 +6,7 @@
     <h1 class="font-bold text-4xl text-slate-800">{{ artice.title }}</h1>
     <div class="artices_info text-gray-500">
       <div class="artices_date">
-        {{ formatDate(artice.date, "MMM DD, YYYY") }}
+        {{ formatDate(artice.date, "MMM DD, YYYY", { locales: "en-US" }) }}
       </div>
       <div class="readingTime">
         {{ Math.ceil(artice.readingTime.minutes) }}min
@@ -54,9 +54,6 @@ const taglist = computed(() => {
 //   .findSurround(artice.value._path);
 const { prev, next, toc, surround } = useContent();
 console.log(toc, surround);
-const formatDate = (date, format) => {
-  return useDateFormat(date, format, { locales: "en-US" }).value;
-};
 </script>
 
 <style scoped>

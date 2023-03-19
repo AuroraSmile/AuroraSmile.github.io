@@ -25,10 +25,6 @@ const props = defineProps({
   },
 });
 
-const formatDate = (date, format) => {
-  return useDateFormat(date, format).value;
-};
-
 const formatPath = (page) => {
   // 解决中文.md文件路由问题
   let str = "/" + page._file.replace(/\d+./g, "").replace(/.md/g, "");
