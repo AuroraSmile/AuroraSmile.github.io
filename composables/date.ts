@@ -1,4 +1,4 @@
-import { UseDateFormatOptions } from "@vueuse/core";
+import { useDateFormat, UseDateFormatOptions } from "@vueuse/core";
 
 export const formatDate = (
   date: string,
