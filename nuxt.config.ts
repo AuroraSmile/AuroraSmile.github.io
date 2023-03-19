@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
   ],
   generate: {
-    dir: "doc",
+    dir: "docs",
   },
   content: {
     // https://content.nuxtjs.org/api/configuration
