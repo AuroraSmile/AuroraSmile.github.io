@@ -7,9 +7,6 @@ export default defineNuxtConfig({
     "nuxt-icon",
     "@nuxtjs/color-mode",
   ],
-  generate: {
-    dir: "docs",
-  },
   content: {
     // https://content.nuxtjs.org/api/configuration
     documentDriven: true,
