@@ -14,7 +14,7 @@
     </div>
     <div class="tag_container text-gray-500">
       <span class="tag_item" v-for="(item, index) in taglist" :key="index">
-        <NuxtLink :to="{ path: '/tags', query: { key: item } }">
+        <NuxtLink :to="{ path: `/tags/${item}` }">
           <span style="margin-right: 2px"
             ><Icon name="ic:baseline-local-offer"
           /></span>
