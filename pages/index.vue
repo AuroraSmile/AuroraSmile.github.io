@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ArticesList :data="data"></ArticesList>
+    <ArticesList v-if="data.length !== 0" :data="data"></ArticesList>
     <div v-if="data.length !== 0" class="fenye">
       <pagination
         :page-size="limit"
