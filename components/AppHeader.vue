@@ -6,16 +6,13 @@
     >
       <div class="dropdown_nav">
         <div class="dropdown_item">
-          <NuxtLink to="/">home</NuxtLink>
-        </div>
-        <div class="dropdown_item">
           <NuxtLink to="/artices">artices</NuxtLink>
         </div>
         <div class="dropdown_item">
-          <NuxtLink to="/about">about</NuxtLink>
+          <NuxtLink to="/Archives">Archives</NuxtLink>
         </div>
         <div class="dropdown_item">
-          <NuxtLink to="/Archives">Archives</NuxtLink>
+          <NuxtLink to="/about">about</NuxtLink>
         </div>
       </div>
     </div>
@@ -31,10 +28,9 @@
 
     <div class="nav_container">
       <ul>
-        <li><NuxtLink to="/">home</NuxtLink></li>
         <li><NuxtLink to="/artices">artices</NuxtLink></li>
-        <li><NuxtLink to="/about">about</NuxtLink></li>
         <li><NuxtLink to="/Archives">Archives</NuxtLink></li>
+        <li><NuxtLink to="/about">about</NuxtLink></li>
       </ul>
     </div>
     <div class="social_container">
