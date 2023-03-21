@@ -2,23 +2,23 @@
   <div class="Archives_container">
     <div class="artice_container">
       <div class="" v-for="(value, key) in ArchivesList">
-        <div class="date_label">
+        <h2 class="date_label">
           {{ key }}
-        </div>
+        </h2>
         <div class="articleList_container">
           <div
             class="article_item"
             @click="goArtice(article._path)"
             v-for="article in value"
           >
-            <div class="article_title">{{ article.title }}</div>
-            <div class="article_date">
+            <span class="article_date">
               {{
-                formatDate(article.date, "YYYY-MM-DD", {
-                  locales: "zh-CN",
+                formatDate(article.date, "MMM DD", {
+                  locales: "en-US",
                 })
               }}
-            </div>
+            </span>
+            <span class="article_title">{{ article.title }}</span>
           </div>
         </div>
       </div>
@@ -34,7 +34,7 @@ const { data: postsList } = await useAsyncData(() => {
 const ArchivesList = computed(() => {
   const result = {};
   postsList.value.forEach((artice) => {
-    const date = useDateFormat(artice.date, "YYYY-MM");
+    const date = useDateFormat(artice.date, "YYYY");
     result[date.value]
       ? result[date.value].push(artice)
       : (result[date.value] = [artice]);
@@ -60,13 +60,15 @@ const goArtice = (path) => {
   color: #1e293b;
   font-size: 18px;
   font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 .article_item {
   margin-bottom: 10px;
   cursor: pointer;
 }
 .article_date {
-  margin-top: 2px;
+  margin-right: 8px;
   font-size: 14px;
   color: #9ca3af;
 }
