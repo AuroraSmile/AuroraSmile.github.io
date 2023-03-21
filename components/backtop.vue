@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="visible" :style="backTopStyle" @click="backtop">
+    <div v-if="visible" :style="backTopStyle" @click="backtop" class="backtop">
       <span :style="{ 'font-size': `${size}px` }"
         ><Icon name="ic:baseline-rocket"
       /></span>
@@ -46,3 +46,9 @@ const backTopStyle = computed(() => {
   };
 });
 </script>
+
+<style scoped>
+.backtop {
+  cursor: pointer;
+}
+</style>

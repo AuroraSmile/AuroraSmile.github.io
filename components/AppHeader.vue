@@ -150,7 +150,7 @@ li a {
   .nav_container {
     flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     margin-left: 14px;
   }
