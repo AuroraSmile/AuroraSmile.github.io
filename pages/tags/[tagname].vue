@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div style="width: 100%">
+    <div class="search_tag">Tag:{{ TAG }}</div>
     <div class="artices_container">
       <ArticesList :data="articesList"></ArticesList>
       <div v-if="articesList.length !== 0" class="fenye">
@@ -43,3 +44,16 @@ const onPageChange = (value) => {
   refresh();
 };
 </script>
+
+<style scoped>
+.search_tag {
+  font-size: 2rem;
+  line-height: 4.6rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+.artices_container {
+  display: flex;
+  justify-content: center;
+}
+</style>
