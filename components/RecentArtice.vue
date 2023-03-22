@@ -2,7 +2,11 @@
   <div class="recent_container">
     <div class="recent_tit">Recent artices</div>
     <div class="artice_container">
-      <div class="artice_item" v-for="artice in data">
+      <div
+        class="artice_item"
+        v-for="artice in data"
+        @click="goArtice(artice._path)"
+      >
         <div class="artice_tit">{{ artice.title }}</div>
         <div class="artice_date">
           {{ formatDate(artice.date, "DD MMM YYYY", { locales: "en-US" }) }}
@@ -25,6 +29,10 @@ const props = defineProps({
 const { data } = await useAsyncData(() => {
   return queryContent("/posts").sort({ date: -1 }).limit(props.count).find();
 });
+
+const goArtice = (path) => {
+  navigateTo(path);
+};
 </script>
 
 <style scoped>
@@ -44,6 +52,7 @@ const { data } = await useAsyncData(() => {
   display: flex;
   padding-top: 10px;
   padding-bottom: 10px;
+  cursor: pointer;
 }
 .artice_tit {
   flex: 1;

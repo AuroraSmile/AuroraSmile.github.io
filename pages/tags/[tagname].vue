@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100%">
+  <div style="width: 100%" class="page_container">
     <div class="search_tag">Tag:{{ TAG }}</div>
     <div class="artices_container">
       <ArticesList :data="articesList"></ArticesList>

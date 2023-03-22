@@ -1,5 +1,5 @@
 <template>
-  <div class="tags_container">
+  <div class="tags_container page_container">
     <div class="tags_item" v-for="(value, key) in taglist" :key="key">
       <NuxtLink :to="{ path: `/tags/${key}` }">
         <span class="shadow-xl rounder-xl p-1.5 opacity-80">{{ key }}</span>
@@ -29,6 +29,7 @@ const taglist = computed(() => {
 <style scoped>
 .tags_container {
   display: flex;
+  flex-direction: row;
 }
 .tags_item {
   margin-right: 6px;
