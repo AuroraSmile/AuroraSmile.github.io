@@ -4,7 +4,7 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push] #触发工作流的事件push到仓库
 jobs:
   #job名称
-  Build To gh-pages:
+  Build-To-gh-pages:
     #Explore-GitHub-Actions jobs运行的容器的系统
     runs-on: ubuntu-latest
     steps:
