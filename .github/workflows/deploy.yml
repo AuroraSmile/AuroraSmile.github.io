@@ -43,10 +43,8 @@ jobs:
           node-version: "16.13.2"
           #项目依赖包安装
       - run: npm install
-      #源码构建
-      - run: npx nuxi generate
-      - run:
-          #显示构建后的目录结构
+      - run: npx nuxi generate #源码构建
+      #显示构建后的目录结构
       - name: List files in the repository
         run: |
           ls ${{github.workspace}}
