@@ -1,5 +1,5 @@
 <template>
-  <div class="artices_container">
+  <div class="artices_container page_container">
     <ArticesList v-if="data.length !== 0" :data="data"></ArticesList>
     <div v-if="data.length !== 0" class="fenye">
       <pagination
@@ -39,14 +39,4 @@ const onPageChange = (value) => {
 };
 </script>
 
-<style scoped>
-.artices_container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  max-width: 42rem;
-  margin: 2rem auto;
-  min-height: calc(100vh - 100px);
-}
-</style>
+<style scoped></style>

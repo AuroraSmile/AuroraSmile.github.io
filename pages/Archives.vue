@@ -1,5 +1,5 @@
 <template>
-  <div class="Archives_container">
+  <div class="Archives_container page_container">
     <div class="artice_container">
       <div class="" v-for="(value, key) in ArchivesList">
         <h2 class="date_label">
