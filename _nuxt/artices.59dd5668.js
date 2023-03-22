@@ -1,1 +1,0 @@
-import{u as n}from"./index.0dc224ef.js";import{u as l}from"./index.0f360d90.js";import{b as u,a7 as o,u as t,o as c}from"./entry.60b97f8c.js";const i=o("h1",null,"articles",-1),d={__name:"artices",setup(m){const r=n(),e=l(r);return(p,s)=>(c(),u("div",null,[i,o("div",{onClick:s[0]||(s[0]=(...a)=>t(e)&&t(e)(...a))},"test")]))}};export{d as default};
