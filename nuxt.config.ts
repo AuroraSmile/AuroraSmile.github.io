@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { createResolver } from "@nuxt/kit";
+const { resolve } = createResolver(import.meta.url);
 export default defineNuxtConfig({
   modules: [
     "@nuxt/content",
@@ -17,4 +19,5 @@ export default defineNuxtConfig({
   colorMode: {
     classSuffix: "",
   },
+  css: [resolve("./assets/css/main.css")],
 });
