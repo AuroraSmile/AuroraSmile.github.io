@@ -1,8 +1,11 @@
+#工作流名称
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
+  #job名称
   Explore-GitHub-Actions:
+    #运行容器的系统
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -16,3 +19,7 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+  Test-github-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hello test"
