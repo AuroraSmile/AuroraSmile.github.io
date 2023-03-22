@@ -5,7 +5,7 @@ on: [push]
 jobs:
   #job名称
   Explore-GitHub-Actions:
-    #运行容器的系统
+    #Explore-GitHub-Actions jobs运行的容器的系统
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -23,3 +23,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "hello test"
+      #克隆代码到容器上
+      - name: Checkout repository code
+        uses: actions/checkout@v3
+        #显示克隆的代码
+      - name: List files in the repository
+        run: |
+          ls ${{github.workspace}}
+
+        #打包构建
+      - name: Build
+        #安装node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.13.2"
+      - run: npm install
+      - run: npx nuxi generate
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3 # 使用部署到 GitHub pages 的 action
+        with:
+          publish_dir: ./output/public
+          github_token: ${{ secrets.DEPLOY_SECRET }} # secret 名
+          user_name: ${{ secrets.MY_USER_NAME }}
+          user_email: ${{ secrets.MY_USER_EMAIL }}
+          commit_message: 自动部署 # 部署时的 git 提交信息，自由填写
