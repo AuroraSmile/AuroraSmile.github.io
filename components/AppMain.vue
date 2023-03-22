@@ -1,5 +1,5 @@
 <template>
-  <div class="main_container">
+  <div>
     <slot />
     <backtop :size="32"></backtop>
   </div>

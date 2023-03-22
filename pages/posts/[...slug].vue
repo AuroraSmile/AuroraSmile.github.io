@@ -59,6 +59,13 @@ console.log(toc, surround);
 <style scoped>
 .artice_container {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 42rem;
+  margin: 2rem auto;
+  min-height: calc(100vh - 100px);
 }
 .footer {
   margin-top: 1.5rem;

@@ -15,3 +15,11 @@ const { data } = await useAsyncData(() => {
   return queryContent("/posts").sort({ date: -1 }).limit(LIMIT).find();
 });
 </script>
+
+<style scoped>
+.recent_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+</style>
