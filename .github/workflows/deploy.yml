@@ -1,6 +1,6 @@
 #工作流名称
 name: Deploy
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+#run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push] #触发工作流的事件push到仓库
 jobs:
   #job名称
