@@ -1,1 +1,0 @@
-import{a as o,b as t,r as s,a3 as a,o as c}from"./entry.6fa1db2d.js";const r={},n=a("h1",null,"custom layout",-1);function l(e,u){return c(),t("div",null,[n,s(e.$slots,"default")])}const d=o(r,[["render",l]]);export{d as default};
