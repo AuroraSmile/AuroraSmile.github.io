@@ -18,6 +18,10 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - name: get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      - run: echo "${{steps.date.outputs.date}}"
       - run: echo "🍏 This job's status is ${{ job.status }}."
   Test-github-Actions:
     runs-on: ubuntu-latest
@@ -37,13 +41,22 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16.13.2"
+          #项目依赖包安装
       - run: npm install
+      #源码构建
       - run: npx nuxi generate
-
+      - run:
+          #显示构建后的目录结构
+      - name: List files in the repository
+        run: |
+          ls ${{github.workspace}}
+      - run: cd .output/public
+      - run: touch .nojekyll #解决部署时会过滤以_前缀开头的文件
+      #部署到github gh-pages分支上
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3 # 使用部署到 GitHub pages 的 action
         with:
-          publish_dir: .output/public
+          publish_dir: .output/public #部署打包后的目录
           github_token: ${{ secrets.DEPLOY_SECRET }} # secret 名
           user_name: ${{ secrets.MY_USER_NAME }}
           user_email: ${{ secrets.MY_USER_EMAIL }}
