@@ -1,16 +1,20 @@
 #工作流名称
 name: Deploy
+#工作流生成的工作流运行器的名称
 #run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push] #触发工作流的事件push到仓库
+on: [push] #由push事件触发Deploy工作流
+#在Deploy工作流运行的所有任务
 jobs:
-  #job名称
+  #定义一个job名称为Build-To-gh-pages
   Build-To-gh-pages:
-    #Explore-GitHub-Actions jobs运行的容器的系统
+    #配置Build-To-gh-pages任务在最新版本的ubuntu linux系统的运行器上运行
     runs-on: ubuntu-latest
+    #运行Build-To-gh-pages任务的所有步骤
     steps:
       - run: echo "hello test"
-      #克隆代码到容器上
+      #克隆代码到运行器上
       - name: Checkout repository code
+        #该步骤use关键字指定使用actions/checkout操作的v3版本。该操作是检出仓库代码到运行器上
         uses: actions/checkout@v3
         #显示克隆的代码
       - name: List files in the repository
@@ -32,6 +36,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
           #项目依赖包安装
+          #run关键字告诉job在runner(运行器)上执行的命令
       - run: npm install
       - run: npx nuxi generate #源码构建
       #显示构建后的目录结构
@@ -42,10 +47,12 @@ jobs:
       - run: touch .nojekyll #解决部署时会过滤以_前缀开头的文件
       #部署到github gh-pages分支上
       - name: Deploy
+        env:
+          date: $(date +'%Y-%m-%d-%H:%m:%S')
         uses: peaceiris/actions-gh-pages@v3 # 使用部署到 GitHub pages 的 action
         with:
           publish_dir: .output/public #部署打包后的目录
           github_token: ${{ secrets.DEPLOY_SECRET }} # secret 名
           user_name: ${{ secrets.MY_USER_NAME }}
           user_email: ${{ secrets.MY_USER_EMAIL }}
-          commit_message: "自动部署" # 部署时的 git 提交信息，自由填写
+          commit_message: "自动部署${{env.date}}" # 部署时的 git 提交信息，自由填写
