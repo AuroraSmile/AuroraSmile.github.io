@@ -56,4 +56,4 @@ jobs:
           github_token: ${{ secrets.DEPLOY_SECRET }} # secret 名
           user_name: ${{ secrets.MY_USER_NAME }}
           user_email: ${{ secrets.MY_USER_EMAIL }}
-          commit_message: "自动部署${{timestamp}}" # 部署时的 git 提交信息
+          commit_message: "自动部署$timestamp" # 部署时的 git 提交信息
