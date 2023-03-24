@@ -48,7 +48,7 @@ jobs:
       - run: touch .nojekyll #解决部署时会过滤以_前缀开头的文件
       #部署到github gh-pages分支上
       - run: |
-          timestamp=${date +'%Y-%m-%d-%H:%m:%S'}
+          timestamp=$(date +'%Y-%m-%d-%H:%m:%S')
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3 # 使用部署到 GitHub pages 的 action
         with:
