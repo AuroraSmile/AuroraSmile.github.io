@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     #运行Build-To-gh-pages任务的所有步骤
     steps:
-      - run: echo "hello test"
       #克隆代码到运行器上
       - name: Checkout repository code
         #该步骤use关键字指定使用actions/checkout操作的v3版本。该操作是检出仓库代码到运行器上
@@ -20,23 +19,22 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{github.workspace}}
-
-        #打包构建
-      - name: Build
+        #安装node
+      - name: setup node
         #安装node
         uses: actions/setup-node@v3
         with:
           node-version: "16.13.2"
         #缓存依赖 加快workflows构建速度
-      - name: Cache dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-          #项目依赖包安装
-          #run关键字告诉job在runner(运行器)上执行的命令
+      # - name: Cache dependencies
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: ~/.npm
+      #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-node-
+      #项目依赖包安装
+      #run关键字告诉job在runner(运行器)上执行的命令
       - run: npm install
       - run: npx nuxi generate #源码构建
       #显示构建后的目录结构
@@ -55,4 +53,4 @@ jobs:
           github_token: ${{ secrets.DEPLOY_SECRET }} # secret 名
           user_name: ${{ secrets.MY_USER_NAME }}
           user_email: ${{ secrets.MY_USER_EMAIL }}
-          commit_message: "自动部署${{env.date}}" # 部署时的 git 提交信息，自由填写
+          commit_message: "自动部署" # 部署时的 git 提交信息，自由填写
