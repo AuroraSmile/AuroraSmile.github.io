@@ -27,13 +27,15 @@ jobs:
           node-version: "16.13.2"
           cache: "npm"
         #缓存依赖 加快workflows构建速度
-      # - name: Cache dependencies
-      #   uses: actions/cache@v3
-      #   with:
-      #     path: ~/.npm
-      #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-node-
+      - name: Restore cache
+        uses: actions/cache@v3
+        with:
+          path: |
+          .output/public
+          .nuxt
+          key: ${{ runner.os }}-nuxt-build-${{ hashFiles('.output/public') }}
+          restore-keys: |
+            ${{ runner.os }}-nuxt-build-
       #项目依赖包安装
       #run关键字告诉job在runner(运行器)上执行的命令
       - run: npm install
