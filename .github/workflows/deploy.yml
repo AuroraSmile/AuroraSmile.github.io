@@ -25,6 +25,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16.13.2"
+          cache: "npm"
         #缓存依赖 加快workflows构建速度
       # - name: Cache dependencies
       #   uses: actions/cache@v3
